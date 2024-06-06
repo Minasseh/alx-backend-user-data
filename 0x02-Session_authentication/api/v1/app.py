@@ -37,7 +37,7 @@ def filter_request() -> None:
     if auth.authorization_header(request) is None:
         abort(401)
     if auth.current_user(request) is None:
-        abort(403)
+        return request.current_user
 
 
 @app.errorhandler(404)
